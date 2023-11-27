@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using Watermark;
 
+namespace Watermark;
 class Program
 {
     static void Main()
@@ -10,18 +13,18 @@ class Program
 
         PrintAscii();
 
-        Console.Write("Enter the text for the watermark: ");
+        Debugger.Info("Enter the text for the watermark: ");
         string watermarkText = Console.ReadLine();
 
-        Console.Write("Enter the path to the image (including the file name): ");
+        Debugger.Info("Enter the path to the image (including the file name): ");
         string imagePath = Console.ReadLine();
 
-        Console.Write("Enter the transparency level (from 0.0 to 1.0): ");
+        Debugger.Info("Enter the transparency level (from 0.0 to 1.0): ");
         float transparency = float.Parse(Console.ReadLine());
 
         AddWatermark(imagePath, watermarkText, transparency);
 
-        Console.WriteLine("Watermark successfully added!");
+        Debugger.Info("Watermark successfully added!");
         Thread.Sleep(2000);
     }
 
@@ -44,13 +47,13 @@ class Program
                 graphics.DrawString(watermarkText, font, brush, x, y);
             }
 
-            Console.Write("Enter the output file name (without extension): ");
+            Debugger.Info("Enter the output file name (without extension): ");
             string outputFileName = Console.ReadLine();
             image.Save(outputFileName + ".png", ImageFormat.Png);
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Ошибка: {ex.Message}");
+            Debugger.Error($"Ошибка: {ex.Message}");
         }
     }
 
@@ -74,6 +77,7 @@ class Program
 
     static void PrintAscii()
     {
+        Console.ForegroundColor = ConsoleColor.Magenta;
         Console.WriteLine(@"   _____ _                 _       __          __   _                                 _     
   / ____(_)               | |      \ \        / /  | |                               | |    
  | (___  _ _ __ ___  _ __ | | ___   \ \  /\  / /_ _| |_ ___ _ __ _ __ ___   __ _ _ __| | __ 
@@ -83,5 +87,6 @@ class Program
                     | |                                                                     
                     |_|                                                                     
 ");
+        Console.ResetColor();
     }
 }
