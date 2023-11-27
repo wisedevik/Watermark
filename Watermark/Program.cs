@@ -8,13 +8,15 @@ class Program
     {
         Console.Title = "Simple watermark";
 
-        Console.WriteLine("Enter the text for the watermark:");
+        PrintAscii();
+
+        Console.Write("Enter the text for the watermark: ");
         string watermarkText = Console.ReadLine();
 
-        Console.WriteLine("Enter the path to the image (including the file name):");
+        Console.Write("Enter the path to the image (including the file name): ");
         string imagePath = Console.ReadLine();
 
-        Console.WriteLine("Enter the transparency level (from 0.0 to 1.0):");
+        Console.Write("Enter the transparency level (from 0.0 to 1.0): ");
         float transparency = float.Parse(Console.ReadLine());
 
         AddWatermark(imagePath, watermarkText, transparency);
@@ -68,5 +70,18 @@ class Program
         }
 
         return font;
+    }
+
+    static void PrintAscii()
+    {
+        Console.WriteLine(@"   _____ _                 _       __          __   _                                 _     
+  / ____(_)               | |      \ \        / /  | |                               | |    
+ | (___  _ _ __ ___  _ __ | | ___   \ \  /\  / /_ _| |_ ___ _ __ _ __ ___   __ _ _ __| | __ 
+  \___ \| | '_ ` _ \| '_ \| |/ _ \   \ \/  \/ / _` | __/ _ \ '__| '_ ` _ \ / _` | '__| |/ / 
+  ____) | | | | | | | |_) | |  __/    \  /\  / (_| | ||  __/ |  | | | | | | (_| | |  |   <  
+ |_____/|_|_| |_| |_| .__/|_|\___|     \/  \/ \__,_|\__\___|_|  |_| |_| |_|\__,_|_|  |_|\_\ 
+                    | |                                                                     
+                    |_|                                                                     
+");
     }
 }
