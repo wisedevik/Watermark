@@ -14,7 +14,10 @@ class Program
         Console.WriteLine("Enter the path to the image (including the file name):");
         string imagePath = Console.ReadLine();
 
-        AddWatermark(imagePath, watermarkText, 0.6f);
+        Console.WriteLine("Enter the transparency level (from 0.0 to 1.0):");
+        float transparency = float.Parse(Console.ReadLine());
+
+        AddWatermark(imagePath, watermarkText, transparency);
 
         Console.WriteLine("Watermark successfully added!");
         Thread.Sleep(2000);
