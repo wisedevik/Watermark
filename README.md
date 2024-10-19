@@ -9,7 +9,7 @@ A simple console application for adding customizable watermarks to images. This 
 - 📦 Dependency Injection: Built using .NET's DI framework for clean and testable code. 
 
 # Requirements 
-.NET 7 SDK: You need to have .NET 7 installed to build and run this project. 
+.NET 7 SDK: You need to have .NET 7 installed to build and run this project.  
 Dependencies: The project uses the following libraries: 
-Microsoft.Extensions.DependencyInjection: For managing dependencies. 
-System.Drawing: For image manipulation. 
+- Microsoft.Extensions.DependencyInjection: For managing dependencies. 
+- System.Drawing: For image manipulation. 
